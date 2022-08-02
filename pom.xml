@@ -7,6 +7,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>springSecurity</module>
+      <module>singleSignOn</module>
   </modules>
   <packaging>pom</packaging>
   <name>Archetype - blog</name>
@@ -20,6 +21,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+    <mysql.version>8.0.11</mysql.version>
+    <druid.version>1.1.22</druid.version>
   </properties>
 
   <!-- 以下依赖会引入到所有包内 -->
@@ -28,12 +31,47 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+    <!--mysql驱动 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+    <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    <!--Druid -->
+    <dependency>
+           <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
     </dependency>
 
-    <!-- lombok 工具类 -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
+    <!-- lombok 工具类 整合Lombok简化POJO开发 -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.73</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>${spring-boot.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <dependencyManagement>
@@ -47,7 +85,12 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
