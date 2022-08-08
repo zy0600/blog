@@ -5,6 +5,6 @@ import org.zm.spring.security.entity.UserInfo;
 
 import java.util.List;
 @Mapper
-public interface Maping {
+public interface Mapping {
     List<UserInfo> selectAll();
 }

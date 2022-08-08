@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.zm.spring.security.mapper.Maping">
+<mapper namespace="org.zm.spring.security.mapper.Mapping">
     <resultMap id="resultIndex" type="org.zm.spring.security.entity.UserInfo">
         <result property="id" column="id" />
         <result property="uName" column="uname"/>

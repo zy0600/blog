@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zm.sso.mapper">
+    <resultMap id="resultUsername" type="org.zm.sso.entity.SysUser">
+        <result property="id" column="id" />
+        <result property="uName" column="uname"/>
+        <result property="password" column="password"/>
+        <result property="xingMing" column="xingming"/>
+        <result property="status" column="status"/>
+    </resultMap>
+    <resultMap id="resultRole" type="org.zm.sso.entity.SysRole">
+        <result property="id" column="id" />
+        <result property="roleName" column="rolename"/>
+
+    </resultMap>
+    <select id="findByUsername"  resultMap="resultUsername">
+        select id,uname,password,xingming,status from `role` where uname=#{username}
+    </select>
+    <select id="findByUid">
+        select id,uname,password,xingming,status from `role` r,userrole ur where r.id=ur.rid and ur.uid=#{uid}
+    </select>
+
+</mapper>
